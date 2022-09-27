@@ -18,7 +18,7 @@ apt update && apt dist-upgrade -y && apt install -y git nano python termux-api &
 ```
 
 ```
-pip install -r requirements.txt && exit && cd .. && termux-notification-list
+pip install -r requirements.txt && deactivate && cd .. && termux-notification-list
 ```
 
 You will be asked to provide notification access to Termux:API app. You must provide Termux:API app all the required permissions. You may be required to do `Ctrl+C` to continue.
