@@ -151,7 +151,7 @@ async def history_(app, message: Message):
         count += 1
         history += f"\n**{count}.** `{i}`"
     if not history:
-        history = "Ongaku: Nothing played in the current session"
+        history = "Ongaku: Nothing has been played in the current session"
     return await message.reply(history)
 
 
