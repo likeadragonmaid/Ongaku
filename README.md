@@ -6,8 +6,6 @@ A **smol and fluffy** telegram bot to update your bio with music playing on your
 
 * An android device capable of running Termux
 * A music player app capable of showing notifications of current music being played
-* The package name of your music player app, you can use [this](https://f-droid.org/en/packages/com.oF2pks.applicationsinfo/) app to check package name of your app
-
 ### Getting started
 
 * Install [Termux](https://f-droid.org/en/packages/com.termux/) and [Termux:API](https://f-droid.org/en/packages/com.termux.api/) apps from F-Droid.
@@ -33,13 +31,31 @@ Edit `config.env` as instructed by the file itself.
 
 $ `nano config.env`
 
-Use `Ctrl+X` to save your changes.
+* You can get `API_ID` and `API_HASH` from [here](https://my.telegram.org/).
 
-* Start playing music using the app you set in `config.env` and `./launch.sh` inside `ongaku` directory.
+* You can use this [app](https://f-droid.org/en/packages/com.oF2pks.applicationsinfo/) to check package name of your music player app and add it to `MUSIC_PLAYER` value.
+
+* To optionally get `LOG_CHANNEL` create a private telegram channel and send a random message in it. After that forward that message to [@username_to_id_bot](https://t.me/username_to_id_bot) on telegram or [here](https://t.me/username_to_id_bot).
+
+* You can leave out `STRING_SESSION` for now by uncommenting it.
+
+* Starting [IDBot](https://t.me/username_to_id_bot) on telegram will also give you your own ID. Put that in `USERS` value.
+
+Use `Ctrl+X` to exit and save your changes.
+
+* Run `./launch` inside `ongaku` directory. You will receive your `STRING_SESSION` in your saved messages in telegram app.
+
+* Copy the session text and edit your `config.env` file once again by running `nano config.env`
+
+* Paste your session text according to the instructions in the file.
+
+Use `Ctrl+X` to exit and save your changes.
+
+* Run `./launch` inside `ongaku` directory once again.
 
 * If this is your first time launching Ongaku then you will be asked to enter your phone number to login. Next launches will work without having to re-login.
 
-* If everything went well you should get `Ongaku started` in your saved messages. And you should see current playing song in the Termux app and in the telegram channel you set for logging if any.
+* If everything went well you should be up and running. At this point you can start playing music and you should see current playing song in the Termux app and in the telegram channel you set for logging if any.
 
 * From notifications tap on `ACQUIRE WAKELOCK` on termux notification and allow access to let Termux run in background. This needs to be done each time you  relaunch termux.
 
