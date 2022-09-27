@@ -55,17 +55,17 @@ users = os.environ.get("USERS")
 
 users_list = [int(i) for i in users.split(",")]
 
-current_ = []
+current_ = ["dummy"]
 
 ### Check Loop ###
 
 if looper.lower() == "yes":
     print(
-        "Ongaku: Bot is set to work until manually stopped. It can be stopped by Ctrl+C or killing the process(s)\n"
+        "\nOngaku: Bot is set to work until manually stopped. It can be stopped by Ctrl+C or killing the process(s)\n"
     )
 else:
     print(
-        "Ongaku: Bot is set to stop if there is no music notification. You can change this behavior.\n"
+        "\nOngaku: Bot is set to stop if there is no music notification. You can change this behavior.\n"
     )
 
 ### Ongaku Functions ###
@@ -76,7 +76,7 @@ async def main():
         if log_channel:
             await app.send_message(chat_id=int(log_channel), text="Ongaku started")
         print(
-            "\nOngaku: Started\nOngaku: Notifications are checked every 60 seconds to avoid spamming the API(s).\nOngaku: Send .sync in any chat to force notification detection."
+            "\nOngaku: Started\nOngaku: Notifications are checked every 30 seconds to avoid spamming the API(s).\nOngaku: Send .sync in any chat to force notification detection."
         )
         me = await app.get_chat("me")
         global bio_
@@ -92,7 +92,7 @@ async def main():
                 )
                 sys.exit()
                 break
-            await asyncio.sleep(60)
+            await asyncio.sleep(30)
 
 
 async def get_song():
@@ -112,13 +112,15 @@ async def get_song():
                 raw_title = remove_bloat.sub("", raw_title)
             remove_space = re.compile(re.escape("  "), re.IGNORECASE)
             raw_title = remove_space.sub("", raw_title)
-            full = f"▷ Now listening: {raw_title}"
+            full = f"▷Now listening: {raw_title}"
             val = full
-            if raw_title not in current_:
+            if raw_title != current_[-1]:
                 if len(val) > 70:
-                    val = val.replace("Now listening:", "")
+                    val = f"▷Now listening: {title}"
                     if len(val) > 70:
-                        val = val[0:70:]
+                        val = f"▷{title}"
+                        if len(val) > 70:
+                            val = val[0:70:]
                 await app.update_profile(bio=val)
                 current_.append(raw_title)
                 print(val)
@@ -139,7 +141,12 @@ async def about_(app, message: Message):
 async def sync_(app, message: Message):
     await message.delete()
     check_song = await get_song()
-    return await message.reply(check_song)
+    if check_song == "Ongaku: Bio update skipped: Notification is stale":
+        del_ = True
+    msg = await message.reply(check_song)
+    if del_:
+        await asyncio.sleep(10)
+        await msg.delete()
 
 
 @app.on_message(filters.regex(r"^\.history$") & filters.user(users_list))
@@ -147,7 +154,7 @@ async def history_(app, message: Message):
     await message.delete()
     history = ""
     count = 0
-    for i in current_:
+    for i in current_[1:]:
         count += 1
         history += f"\n**{count}.** `{i}`"
     if not history:
@@ -158,6 +165,8 @@ async def history_(app, message: Message):
 async def reset_bio():
     print("\n\nOngaku: Resetting bio")
     await app.update_profile(bio=bio_)
+    if log_channel:
+        return await app.send_message(chat_id=int(log_channel),text="Ongaku: Stopped")
 
 
 loop = asyncio.get_event_loop().run_until_complete
