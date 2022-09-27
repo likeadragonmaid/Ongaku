@@ -83,7 +83,7 @@ async def main():
         bio_ = me.bio if me.bio else ""
         while True:
             song = await get_song()
-            if song not in ["Ongaku: No notification detected", "Ongaku: Debug: Bio update skipped: Notification is stale"] and log_channel:
+            if song not in ["Ongaku: No notification detected", "Ongaku: Bio update skipped: Notification is stale"] and log_channel:
                 await app.send_message(chat_id=int(log_channel), text=song)
             if song == "Ongaku: No notification detected" and looper.lower() != "yes":
                 await app.update_profile(bio=bio_)
@@ -123,7 +123,7 @@ async def get_song():
                 current_.append(raw_title)
                 print(val)
             else:
-                val = "Ongaku: Debug: Bio update skipped: Notification is stale"
+                val = "Ongaku: Bio update skipped: Notification is stale"
                 #print (val)
     return val
 
