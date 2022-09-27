@@ -1,2 +1,4 @@
 config.env
 TG_SESSION.session
+venv/
+__pycache__
