@@ -169,9 +169,8 @@ async def reset_bio():
         return await app.send_message(chat_id=int(log_channel),text="Ongaku: Stopped")
 
 
-loop = asyncio.get_event_loop().run_until_complete
 try:
-    loop(main())
+    app.run(main())
 except KeyboardInterrupt:
-    loop(reset_bio())
+    app.run(reset_bio())
     print("\nOngaku: Stopped")

@@ -39,6 +39,5 @@ source venv/bin/activate
 checkconfig
 checksession
 check_vars
-export PYTHONWARNINGS="ignore::DeprecationWarning"
 python3 main.py
 deactivate
