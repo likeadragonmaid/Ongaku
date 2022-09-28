@@ -141,6 +141,7 @@ async def about_(app, message: Message):
 async def sync_(app, message: Message):
     await message.delete()
     check_song = await get_song()
+    del_ = False
     if check_song == "Ongaku: Bio update skipped: Notification is stale":
         del_ = True
     msg = await message.reply(check_song)
