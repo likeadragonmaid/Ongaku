@@ -12,7 +12,7 @@ A **smol and fluffy** telegram bot to update your bio with music playing on your
 * Launch Termux and run the following commands
 
 ```
-apt update && apt dist-upgrade -y && apt install -y git nano python termux-api && git clone https://github.com/gibcheesepuffs/ongaku --depth=1 && cd ongaku && pip install virtualenv && virtualenv venv && source venv/bin/activate
+apt update && apt dist-upgrade -y && apt update && apt install -y git nano python termux-api && git clone https://github.com/gibcheesepuffs/ongaku --depth=1 && cd ongaku && pip install virtualenv && virtualenv venv && source venv/bin/activate
 ```
 
 ```
