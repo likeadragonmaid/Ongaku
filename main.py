@@ -33,14 +33,17 @@ from pyrogram.types import Message
 
 ### Global Vars ###
 
+git_branch = run("git branch --show-current", shell=True, capture_output=True).stdout.decode("utf-8")
+operating_system = run("uname -srmo", shell=True, capture_output=True).stdout.decode("utf-8")
+
 app = Client(
     name="Ongaku",
     session_string=os.environ.get("STRING_SESSION"),
     api_id=os.environ.get("API_ID"),
     api_hash=os.environ.get("API_HASH"),
     device_model=("Ongaku"),
-    app_version=("Termux"),
-    system_version=("Android")
+    app_version=("git-" + git_branch),
+    system_version=(operating_system)
 )
 
 log_channel = os.environ.get("LOG_CHANNEL")
