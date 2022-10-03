@@ -61,6 +61,7 @@ Use `Ctrl+X` to exit and save your changes.
 
 ### Tips
 
+* If you forgot to `ACQUIRE WAKELOCK` for Termux, upon locking the phone, Ongaku may stop detecting notifications and responding to commands! Never forget to `ACQUIRE WAKELOCK`.
 * If you frequently switch between multiple music players, you may want to keep multiple `config.env` files. You can make any number of `.env` files named like `config-1.env, config-2.env, config-3.env...` and so on. To keep any one the file active at one time, you just have to rename that file to `config.env` and use launch script as usual.
 
 ### Known Limitations
