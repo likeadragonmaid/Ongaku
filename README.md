@@ -1,5 +1,4 @@
-# Ongaku
-
+<p align="center"><img src="https://raw.githubusercontent.com/gibcheesepuffs/Ongaku/main/images/ongaku-logo_github.png"></p>
 A **smol and fluffy** telegram bot to update your bio with music playing on your android phone in real time!
 
 ### Requirements
