@@ -56,11 +56,9 @@ Use `Ctrl+X` to exit and save your changes.
 
 * If everything went well you should be up and running. At this point you can start playing music and you should see current playing song in the Termux app and in the telegram channel you set for logging if any.
 
-* From notifications tap on `ACQUIRE WAKELOCK` on termux notification and allow access to let Termux run in background. This needs to be done each time you  relaunch termux.
-
 ### Tips
 
-* If you forgot to `ACQUIRE WAKELOCK` for Termux, upon locking the phone, Ongaku may stop detecting notifications and responding to commands! Never forget to `ACQUIRE WAKELOCK`.
+* Ongaku may stop detecting notifications and responding to commands if you `RELEASE WAKELOCK` while it is running! It handles android wakelocks automatically.
 * If you frequently switch between multiple music players, you may want to keep multiple `config.env` files. You can make any number of `.env` files named like `config-1.env, config-2.env, config-3.env...` and so on. To keep any one the file active at one time, you just have to rename that file to `config.env` and use launch script as usual.
 
 ### Known Limitations

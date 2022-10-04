@@ -33,11 +33,30 @@ Ongaku: config.env loaded\n\nOngaku: Checking session"
 }
 
 
+checkTermuxEnv() {
+if [ $(uname -o) == "Android" ]; then
+	termux=1
+fi
+}
+
+
 echo "Ongaku: Checking for updates"
 git fetch && git pull
 source venv/bin/activate
 checkconfig
 checksession
 check_vars
+checkTermuxEnv
+
+if [ $termux -eq 1 ]; then
+	echo -e "Termux: Acquiring wakelock"
+	termux-wake-lock
+fi
+
 python3 main.py
 deactivate
+
+if [ $termux -eq 1 ]; then
+	echo -e "Termux: Releasing wakelock"
+	termux-wake-unlock
+fi
