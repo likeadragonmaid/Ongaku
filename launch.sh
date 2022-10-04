@@ -36,6 +36,12 @@ Ongaku: config.env loaded\n\nOngaku: Checking session"
 checkTermuxEnv() {
 if [ $(uname -o) == "Android" ]; then
 	termux=1
+	if [ -z $(getprop ro.miui.ui.version.name) ]; then
+        	miui=0
+	else
+        	miui=1
+		echo -e "Termux: MIUI device detected\nTermux: Ongaku is unsupported!\nTermux: Please check README.md for more details"
+	fi
 fi
 }
 
