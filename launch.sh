@@ -47,7 +47,7 @@ if [ $(git config --get remote.origin.url) == "https://github.com/gibcheesepuffs
 fi
 }
 
-updateRemote
+#updateRemote
 echo "Ongaku: Checking for updates"
 git fetch && git pull
 source venv/bin/activate
