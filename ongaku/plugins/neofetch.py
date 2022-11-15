@@ -1,10 +1,13 @@
 import subprocess
 from io import BytesIO
-
-from PIL import Image, ImageDraw, ImageFont, ImageSequence
-
+try:
+    from PIL import Image, ImageDraw, ImageFont, ImageSequence
+    pil_installed = True
+except ModuleNotFoundError:
+    pil_installed = False
 
 def neofetch():
+    if pil_installed == False :    return
     neofetch = subprocess.run(
         "neofetch --stdout", shell=True, capture_output=True
     ).stdout.decode("utf-8")
