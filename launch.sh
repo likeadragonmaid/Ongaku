@@ -8,14 +8,11 @@ check_vars() {
 
 checksession() {
   if test $STRING_SESSION; then
-     echo "
-Ongaku: Session found"
+     echo "Ongaku: Session found"
   else
-     echo "
-Ongaku: Starting for the first time"
-     python3 create_client.py
-     echo "
-Please check for session in your saved messages in telegram. Add it to your config.env and run the project again."
+     echo "Ongaku: Starting for the first time"
+     python3 ongaku/create_client.py
+     echo "Please check for session in your saved messages in telegram. Add it to your config.env and run the project again."
      exit
   fi
 }
@@ -24,8 +21,7 @@ Please check for session in your saved messages in telegram. Add it to your conf
 checkconfig() {
   if test -f "config.env"; then
      export $(grep '^[A-Z].*' config.env | xargs)
-     echo -e "
-Ongaku: config.env loaded\n\nOngaku: Checking session"
+     echo -e "Ongaku: config.env loaded\nOngaku: Checking session"
   else
      echo "Please add API_ID AND API_HASH in config.env"
      exit
@@ -45,7 +41,13 @@ if [ $(uname -o) == "Android" ]; then
 fi
 }
 
+updateRemote() {
+if [ $(git config --get remote.origin.url) == "https://github.com/gibcheesepuffs/ongaku" ]; then
+	git remote set-url origin https://github.com/Ongaku-TG/ongaku.git
+fi
+}
 
+updateRemote
 echo "Ongaku: Checking for updates"
 git fetch && git pull
 source venv/bin/activate
@@ -59,7 +61,7 @@ if [ $termux -eq 1 ]; then
 	termux-wake-lock
 fi
 
-python3 main.py
+python3 -m ongaku
 deactivate
 
 if [ $termux -eq 1 ]; then

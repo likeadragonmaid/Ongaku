@@ -1,8 +1,7 @@
-<p align="center"><img src="https://raw.githubusercontent.com/gibcheesepuffs/Ongaku/main/images/ongaku-logo_github.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Ongaku-TG/ongaku/main/ongaku/resources/images/logos/ongaku-logo_github.png"></p>
 A **smol and fluffy** telegram bot to update your bio with music playing on your android phone in real time!
 
 ### Requirements
-
 * An android device capable of running Termux
 * A music player app capable of showing notifications of current music being played
 ### Getting started
@@ -11,11 +10,13 @@ A **smol and fluffy** telegram bot to update your bio with music playing on your
 * Launch Termux and run the following commands
 
 ```
-apt update && apt dist-upgrade -y && apt update && apt install -y git nano python termux-api && git clone https://github.com/gibcheesepuffs/ongaku --depth=1 && cd ongaku && pip install virtualenv && virtualenv venv && source venv/bin/activate
+apt update && apt dist-upgrade -y && apt update && apt install -y git nano python termux-api && git clone https://github.com/Ongaku-TG/ongaku --depth=1 && cd ongaku && pip install virtualenv && virtualenv venv && source venv/bin/activate && pip install -r requirements.txt && deactivate && cd .. && termux-notification-list
 ```
 
+Optionally you can also add neofetch support by running
+
 ```
-pip install -r requirements.txt && deactivate && cd .. && termux-notification-list
+apt install -y libjpeg-turbo libxcb libraqm libimagequant openjpeg tcl libtiff littlecms freetype neofetch && source venv/bin/activate && pip install -r requirements-optional.txt && deactivate
 ```
 
 You will be asked to provide notification access to Termux:API app. You must provide Termux:API app all the required permissions. You may be required to do `Ctrl+C` to continue.
@@ -42,7 +43,7 @@ $ `nano config.env`
 
 Use `Ctrl+X` to exit and save your changes.
 
-* Run `./launch` inside `ongaku` directory. You will receive your `STRING_SESSION` in your saved messages in telegram app.
+* Run `./launch` inside the root `ongaku` directory. You will receive your `STRING_SESSION` in your saved messages in telegram app.
 
 * Copy the session text and edit your `config.env` file once again by running `nano config.env`
 
@@ -75,6 +76,10 @@ Send in any telegram chat
 `.history` to get list of music played in current session.
 
 `.sync` to force sync bio with latest notification.
+
+`.alive` to get environment information in GIF format (not actual mp4 video with no audio scam format).
+
+`.alive -t` to get environment information in text format.
 
 ### Authors
 * [Shouko](https://github.com/gibcheesepuffs)
