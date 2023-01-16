@@ -10,7 +10,7 @@ A **smol and fluffy** telegram bot to update your bio with music playing on your
 * Launch Termux and run the following commands
 
 ```
-apt update && apt dist-upgrade -y && apt update && apt install -y git nano python termux-api && git clone https://github.com/Ongaku-TG/ongaku --depth=1 && cd ongaku && pip install virtualenv && virtualenv venv && source venv/bin/activate && pip install -r requirements.txt && deactivate && cd .. && termux-notification-list
+apt update && apt dist-upgrade -y && apt update && apt install -y git nano python python-pip termux-api && git clone https://github.com/Ongaku-TG/ongaku --depth=1 && cd ongaku && pip install virtualenv && virtualenv venv && source venv/bin/activate && pip install -r requirements.txt && deactivate && cd .. && termux-notification-list
 ```
 
 Optionally you can also add neofetch support by running
