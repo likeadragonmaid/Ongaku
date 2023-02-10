@@ -16,7 +16,7 @@ apt update && apt dist-upgrade -y && apt update && apt install -y git nano pytho
 Optionally you can also add neofetch support by running
 
 ```
-apt install -y libjpeg-turbo libxcb libraqm libimagequant openjpeg tcl libtiff littlecms freetype neofetch && source venv/bin/activate && pip install -r requirements-optional.txt && deactivate
+cd ongaku && apt install -y libjpeg-turbo libxcb libraqm libimagequant openjpeg tcl libtiff littlecms freetype neofetch && source venv/bin/activate && pip install -r requirements-optional.txt && deactivate && cd ..
 ```
 
 You will be asked to provide notification access to Termux:API app. You must provide Termux:API app all the required permissions. You may be required to do `Ctrl+C` to continue.
