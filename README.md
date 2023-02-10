@@ -82,7 +82,7 @@ Send in any telegram chat
 `.alive -t` to get environment information in text format.
 
 ### Authors
-* [Shouko](https://github.com/gibcheesepuffs)
+* [Shoko](https://github.com/gibcheesepuffs)
 * [Ryuk](https://github.com/anonymousx97)
 
 ### Support
