@@ -10,13 +10,13 @@ A **smol and fluffy** telegram bot to update your bio with music playing on your
 * Launch Termux and run the following commands
 
 ```
-apt update && apt dist-upgrade -y && apt update && apt install -y git nano python python-pip termux-api && git clone https://github.com/Ongaku-TG/ongaku && cd ongaku && pip install virtualenv && virtualenv venv && source venv/bin/activate && pip install -r requirements.txt && deactivate && cd .. && termux-notification-list
+apt update && apt dist-upgrade -y && apt update && apt install -y git nano python python-pip termux-api && git clone https://github.com/Ongaku-TG/ongaku && cd ongaku && pip install virtualenv && virtualenv venv --system-site-packages && source venv/bin/activate && pip install -r requirements.txt && deactivate && cd .. && termux-notification-list
 ```
 
 Optionally you can also add neofetch support by running
 
 ```
-cd ongaku && apt install -y libjpeg-turbo libxcb libraqm libimagequant openjpeg tcl libtiff littlecms freetype neofetch && source venv/bin/activate && pip install -r requirements-optional.txt && deactivate && cd ..
+apt install -y neofetch python-pillow
 ```
 
 You will be asked to provide notification access to Termux:API app. You must provide Termux:API app all the required permissions. You may be required to do `Ctrl+C` to continue.
@@ -85,5 +85,9 @@ Send in any telegram chat
 * [Shoko](https://github.com/gibcheesepuffs)
 * [Ryuk](https://github.com/anonymousx97)
 
-### Support
-[Shouko's Lab](https://t.me/shoukolab)
+### Join
+[Shoko's Lab](https://t.me/shoukolab)
+
+### Disclaimer
+
+This project is provided as is without any warranty. Telegram may ban your account for no reason but it MAY be recovered as well if you explain your situtaion by writing to them at `recover@telegram.org`.
