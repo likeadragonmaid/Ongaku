@@ -31,13 +31,7 @@ async def about_(ong, message: Message):
 async def sync_(ong, message: Message):
     await message.delete()
     check_song = await get_song(check=True)
-    del_ = False
-    if check_song == "Ongaku: Bio update skipped: Notification is stale":
-        del_ = True
-    msg = await message.reply(check_song)
-    if del_:
-        await asyncio.sleep(10)
-        await msg.delete()
+    await message.reply(check_song)
 
 
 @ong.on_message(
@@ -50,7 +44,7 @@ async def history_(ong, message: Message):
     )
     if not history:
         history = "Ongaku: Nothing has been played in the current session"
-    return await message.reply(history)
+    await message.reply(history)
 
 
 @ong.on_message(
