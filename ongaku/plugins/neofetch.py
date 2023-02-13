@@ -1,26 +1,24 @@
-import subprocess
 from io import BytesIO
+
 try:
     from PIL import Image, ImageDraw, ImageFont, ImageSequence
+
     pil_installed = True
 except ModuleNotFoundError:
     pil_installed = False
 
-def neofetch():
-    if pil_installed == False :    return
-    neofetch = subprocess.run(
-        "neofetch --stdout", shell=True, capture_output=True
-    ).stdout.decode("utf-8")
-    if len(neofetch) == 0:
-        return
-    neo_ = neofetch.split("\n")
-    x, y = 125, 150
-    gf = Image.open("ongaku/resources/images/neofetch_template.gif")
+
+def neofetch(neo):
+    if not pil_installed:
+        return "pil not installed"
+    neo_ = neo.split("\n")
+    x, y = 100, 25
+    gif_ = Image.open("ongaku/resources/images/neofetch_template.gif")
     frames = []
-    font_ = ImageFont.truetype("ongaku/resources/NotoSans-Regular.ttf", 50)
+    font_ = ImageFont.truetype("ongaku/resources/NotoSans-Regular.ttf", 23)
     count = 1
     text_ = "Ongaku is running \n"
-    for frame in ImageSequence.Iterator(gf):
+    for frame in ImageSequence.Iterator(gif_):
         try:
             text_ += f"{neo_[count]}\n"
         except IndexError:
@@ -32,8 +30,8 @@ def neofetch():
         frame = Image.open(pic)
         frames.append(frame)
         count += 1
-    n_gif = BytesIO()
-    frames[0].save(n_gif, save_all=True, append_images=frames[1:], format="GIF")
-    n_gif.name = "neofetch.gif"
-    # frames[0].save("neofetch.gif", save_all=True, append_images=frames[1:])
-    return n_gif
+    neo_gif = BytesIO()
+    frames[0].save(neo_gif, save_all=True, append_images=frames[1:], format="GIF")
+    neo_gif.name = "neofetch.gif"
+    #frames[0].save("neofetch.gif", save_all=True, append_images=frames[1:], format="GIF")
+    return neo_gif

@@ -22,8 +22,16 @@
 
 
 class Xtra:
-    EXTENTIONS = ".aac" ".amr" ".mp3" ".m4a" ".ogg" ".opus" ".wav" ".wma"
     BLOAT = [
+        "aac",
+        "amr",
+        "mp3",
+        "m4a",
+        "ogg",
+        "opus",
+        "wav",
+        "wma",
+        "flac",
         "hq",
         "hd",
         "high quality",
@@ -66,4 +74,5 @@ class Xtra:
         "(slowed & reverb)",
         "(remix)",
         "(mashup)",
+        "lyrics",
     ]

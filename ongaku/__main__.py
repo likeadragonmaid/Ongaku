@@ -1,6 +1,8 @@
 import logging
 
-from .ongaku import loop_, ongaku, reset_bio
+from ongaku.looper import loop_, reset_bio
+
+from ongaku import ongaku
 
 logging.basicConfig(level=logging.ERROR)
 
@@ -12,7 +14,8 @@ async def boot():
 
 if __name__ == "__main__":
     try:
+        ongaku.start()
         ongaku.run(boot())
     except KeyboardInterrupt:
-        ongaku.run(reset_bio())
+        ongaku.run(reset_bio(restart=False))
         print("\nOngaku: Stopped")
