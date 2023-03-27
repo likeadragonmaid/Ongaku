@@ -85,9 +85,6 @@ Send in any telegram chat
 * [Shoko](https://github.com/gibcheesepuffs)
 * [Ryuk](https://github.com/anonymousx97)
 
-### Join
-[Shoko's Lab](https://t.me/shoukolab)
-
 ### Disclaimer
 
-This project is provided as is without any warranty. Telegram may ban your account for no reason but it MAY be recovered as well if you explain your situtaion by writing to them at `recover@telegram.org`.
+This project is provided as is without any warranty. Telegram may ban your account for no reason but it MAY be recovered as well if you explain your situtaion by writing to them at `recover@telegram.org`. The authors take no responsibilty of your device or your Telegram acount!
