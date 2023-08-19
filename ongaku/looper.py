@@ -52,7 +52,7 @@ async def loop_():
     )
     me = await ongaku.get_chat("me")
     global bio_
-    bio_ = me.bio if me.bio else ""
+    bio_ = me.bio or ""
     while True:
         song = await get_song(check = False)
         if (
