@@ -4,7 +4,7 @@ check_vars() {
   for var in API_ID API_HASH USERS LOOP; do
       test -z ${!var} && echo -e "\nRequired $var var !"
   done
-  if [ -z "${MUSIC_PLAYER}" ] && [ "${NOW_PLAYING_PIXEL_MODE}" != "true" ]; then
+  if [ -z "${MUSIC_PLAYER}" ] && [ "${NOW_PLAYING_PIXEL_MODE}" != 1 ]; then
       echo -e "\nRequired MUSIC_PLAYER var or NOW_PLAYING_PIXEL_MODE set to true !" && exit
 fi
 }
