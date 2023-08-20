@@ -1,39 +1,44 @@
 import os
-from subprocess import run
+import sys
 
-from pyrogram import Client
+from dotenv import load_dotenv
+from ongaku.tools.create_client import generate_session
 
-log_channel = os.environ.get("LOG_CHANNEL")
+if not load_dotenv("config.env"):
+    print("config.env Not found.")
+    sys.exit()
 
-bio_ = ""
+print("Ongaku: config.env Loaded")
 
-music_player = (
-    "com.google.android.as"
-    if int(os.environ.get("NOW_PLAYING_PIXEL_MODE", 0))
-    else os.environ.get("MUSIC_PLAYER")
-)
+for var in {"API_ID", "API_HASH", "USERS", "LOOP"}:
+    if not os.environ.get(var):
+        print(f"Required {var} var.")
+        sys.exit()
 
-current_ = ["dummy"]
+print("Ongaku: Checking Session")
 
-users = [int(i) for i in os.environ.get("USERS").split(",")]
+if not os.environ.get("STRING_SESSION"):
+    print("Ongaku: Starting for the first time")
+    generate_session()
+    print("Please Add the session to your config.env and run the project again.")
+    sys.exit()
 
-trigger = os.environ.get("CMD_TRIGGER") or "."
+print("Ongaku: Session Found")
 
-git_branch = run(
-    "git branch --show-current", shell=True, capture_output=True
-).stdout.decode("utf-8")
+if int(os.environ.get("LOOP", 0)):
+    print(
+        """Ongaku: Bot is set to work until manually stopped.
+        It can be stopped by Ctrl+C or killing the process(s)
+"""
+    )
+else:
+    print(
+        """Ongaku: Bot is set to stop if there is no music notification.
+        You can change this behavior.
+"""
+    )
 
-operating_system = run("uname -srmo", shell=True, capture_output=True).stdout.decode(
-    "utf-8"
-)
+from ongaku.config import Config
+from .core.client import Ongaku
 
-ongaku = Client(
-    name="Ongaku",
-    session_string=os.environ.get("STRING_SESSION"),
-    api_id=os.environ.get("API_ID"),
-    api_hash=os.environ.get("API_HASH"),
-    device_model=("Ongaku"),
-    app_version=("git-" + git_branch),
-    system_version=(operating_system),
-    plugins=dict(root="ongaku.plugins"),
-)
+ongaku = Ongaku()

@@ -1,4 +1,5 @@
 from io import BytesIO
+import os
 
 try:
     from PIL import Image, ImageDraw, ImageFont, ImageSequence
@@ -10,7 +11,8 @@ except ModuleNotFoundError:
 
 def neofetch(neo):
     if not pil_installed:
-        return "pil not installed"
+        return _, "Ongaku: PIL is not installed\nTip: Check README.md"
+    err = None
     neo_ = neo.split("\n")
     x, y = 100, 25
     gif_ = Image.open("ongaku/resources/images/neofetch_template.gif")
@@ -30,8 +32,12 @@ def neofetch(neo):
         frame = Image.open(pic)
         frames.append(frame)
         count += 1
-    #neo_gif = BytesIO()
-    #frames[0].save(neo_gif, save_all=True, append_images=frames[1:], format="GIF")
-    #neo_gif.name = "neofetch.gif"
-    frames[0].save("neofetch.gif", save_all=True, append_images=frames[1:], format="GIF")
-    return 
+    # neo_gif = BytesIO()
+    # frames[0].save(neo_gif, save_all=True, append_images=frames[1:], format="GIF")
+    # neo_gif.name = "neofetch.gif"
+    frames[0].save(
+        "neofetch.gif", save_all=True, append_images=frames[1:], format="GIF"
+    )
+    if not os.path.isfile("neofetch.gif"):
+        err = "Neofetch GIF generation failed."
+    return "neofetch.gif", err

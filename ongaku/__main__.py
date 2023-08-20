@@ -1,21 +1,14 @@
-import logging
-
-from ongaku.looper import loop_, reset_bio
-
-from ongaku import ongaku
-
-logging.basicConfig(level=logging.ERROR)
-
-
-async def boot():
-    # importlib.import_module("bot.plugins.commands")
-    await loop_()
-
-
 if __name__ == "__main__":
+    import logging
+    import tracemalloc
+
+    from ongaku import ongaku, Ongaku
+
+    tracemalloc.start()
+    logging.basicConfig(level=logging.ERROR)
     try:
-        ongaku.start()
-        ongaku.run(boot())
+        ongaku.run(ongaku.boot())
     except KeyboardInterrupt:
-        ongaku.run(reset_bio(restart=False))
+        ongaku.run(ongaku.set_bio(bio=ongaku.original_bio))
+        ongaku.run(ongaku.log(text="Ongaku stopped."))
         print("\nOngaku: Stopped")

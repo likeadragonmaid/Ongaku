@@ -27,12 +27,16 @@ from pyrogram import Client
 if os.path.isfile("TG_SESSION.session"):
     os.remove("TG_SESSION.session")
 
-a_id = os.environ.get("API_ID",0)
-a_hash = os.environ.get("API_HASH",0)
+a_id = os.environ.get("API_ID", 0)
+a_hash = os.environ.get("API_HASH", 0)
 
-API_ID = int(a_id) or int(input("Enter API_ID: "))
-API_HASH = a_hash or input("Enter API_HASH: ")
-with Client("TG_SESSION", api_id=API_ID, api_hash=API_HASH, in_memory=True) as app:
-    session = app.export_session_string()
-    app.send_message("me", f"#STRING_SESSION\n\n`{session}`")
-    print(f"#Session \n\n{session}\n\nexported to your saved messages\nPlease add it to config.env")
+
+def generate_session():
+    API_ID = int(a_id) or int(input("Enter API_ID: "))
+    API_HASH = a_hash or input("Enter API_HASH: ")
+    with Client("TG_SESSION", api_id=API_ID, api_hash=API_HASH, in_memory=True) as app:
+        session = app.export_session_string()
+        app.send_message("me", f"#STRING_SESSION\n\n`{session}`")
+        print(
+            f"#Session \n\n{session}\n\nexported to your saved messages\nPlease add it to config.env"
+        )
