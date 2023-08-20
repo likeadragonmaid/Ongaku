@@ -83,8 +83,8 @@ async def get_song(check : bool=False):
         if data["packageName"] == music_player:
             title, content = data["title"], data["content"]
             
-            global full = "null"
-            global debloated_title = "null"
+            #global full = "null"
+            #global debloated_title = "null"
             
             if (content == "Tap to see your song history"): #Google Pixel mode
                 debloated_title = title

@@ -1,9 +1,12 @@
 #!/bin/bash
 
 check_vars() {
-  for var in API_ID API_HASH USERS MUSIC_PLAYER LOOP; do
-      test -z ${!var} && echo -e "\nRequired $var var !" && exit
+  for var in API_ID API_HASH USERS LOOP; do
+      test -z ${!var} && echo -e "\nRequired $var var !"
   done
+  if [ -z "${MUSIC_PLAYER}" ] && [ "${NOW_PLAYING_PIXEL_MODE}" != "true" ]; then
+      echo -e "\nRequired MUSIC_PLAYER var or NOW_PLAYING_PIXEL_MODE set to true !" && exit
+fi
 }
 
 checksession() {

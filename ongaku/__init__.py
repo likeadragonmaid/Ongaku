@@ -11,7 +11,7 @@ if (os.environ.get("NOW_PLAYING_PIXEL_MODE") == "false"):
     music_player = os.environ.get("MUSIC_PLAYER")
 elif (os.environ.get("NOW_PLAYING_PIXEL_MODE") == "true"):
     music_player = "com.google.android.as"
-be
+
 current_ = ["dummy"]
 
 users = [int(i) for i in os.environ.get("USERS").split(",")]
