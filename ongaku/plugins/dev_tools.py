@@ -18,7 +18,7 @@ async def run_cmd(ongaku, message):
         proc_stdout = await asyncio.Task(shell.run_shell_cmd(cmd), name=reply.task_id)
     except asyncio.exceptions.CancelledError:
         return await reply.edit("`Cancelled...`")
-    output = f"`${cmd}`\n\n`{proc_stdout}`"
+    output = f"~$`{cmd}`\n\n`{proc_stdout}`"
     return await reply.edit(output, name="sh.txt", disable_web_page_preview=True)
 
 
@@ -44,7 +44,7 @@ async def live_shell(ongaku, message):
             await asyncio.Task(asyncio.sleep(sleep_for), name=reply.task_id)
             sleep_for += 1
         return await reply.edit(
-            f"`$ {cmd}\n\n``{sub_process.full_std}`",
+            f"~$`{cmd}\n\n``{sub_process.full_std}`",
             name="shell.txt",
             disable_web_page_preview=True,
         )
@@ -101,9 +101,9 @@ async def loader(ongaku, message):
     file_name = message.replied.document.file_name.rstrip(".py")
     reload = sys.modules.pop(f"app.temp.{file_name}", None)
     status = "Reloaded" if reload else "Loaded"
-    await message.replied.download("app/temp/")
+    await message.replied.download("ongaku/temp/")
     try:
-        importlib.import_module(f"app.temp.{file_name}")
+        importlib.import_module(f"ongaku.temp.{file_name}")
     except BaseException:
         return await reply.edit(str(traceback.format_exc()))
     await reply.edit(f"{status} {file_name}.py.")

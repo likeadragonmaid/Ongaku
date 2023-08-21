@@ -89,7 +89,7 @@ async def parse_data(title, content):
         raw_title = f"""{content + " - " if content else ""}{title}""".replace("_", " ")
 
     debloated_title = " ".join(
-        [word for word in re.split("\W+", raw_title) if word.lower() not in misc.Xtra.BLOAT]
+        [word for word in re.split("\W+", raw_title) if word.lower() not in misc.BLOAT]
     )
     val = truncate(debloated_title)
     return val

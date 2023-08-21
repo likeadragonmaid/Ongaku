@@ -40,17 +40,17 @@ async def history_(ongaku, message):
 async def neo_alive(ongaku, message):
     reply, _ = await asyncio.gather(message.reply("`Ongaku: Please wait...`"), message.delete())
 
-    neo = await run_shell_cmd("neofetch --stdout")
+    stdout = await run_shell_cmd("neofetch --stdout")
 
-    if not neo:
-        return await out_msg.edit(
+    if not stdout:
+        return await reply.edit(
             "Ongaku: Neofetch is not installed\nTip: Check README.md"
         )
 
     if "-t" in message.flags:
-        return await reply.edit(f"`{neo}`")
+        return await reply.edit(f"`{stdout}`")
 
-    neo_gif, err = await asyncio.to_thread(neofetch, neo)
+    neo_gif, err = await asyncio.to_thread(neofetch, stdout)
 
     if err:
         return await reply.edit(err)

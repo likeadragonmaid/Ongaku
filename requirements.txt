@@ -1,3 +1,4 @@
+gitpython==3.1.32
 Pyrogram==2.0.106
 python-dotenv==1.0.0
 TgCrypto==1.2.5
