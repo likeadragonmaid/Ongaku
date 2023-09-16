@@ -1,5 +1,5 @@
 <p align="center"><img src="https://raw.githubusercontent.com/Ongaku-TG/ongaku/main/ongaku/resources/images/logos/ongaku-logo_github.png"></p>
-A **smol and fluffy** telegram bot to update your bio with music playing on your android phone in real time!
+A **smol and fluffy** bot to update your telegram bio with music playing around you (Pixel) or on your android phone in real time!
 
 ### Requirements
 * An android device capable of running Termux
@@ -69,7 +69,7 @@ Use `Ctrl+X` to exit and save your changes.
 * Devices running MIUI are unsupported as Xiaomi loves to corrupt notification permission after X amount of hours and even at each device reboot. However you can still use Ongaku if you are willing to provide notification access manually by uninstalling Termux:API app, reinstalling it again, running `termux-notification-list` and lastly doing `Ctrl + C` each time Ongaku starts malfunctioning! This is something you can also fix by running a reputable custom rom such as [LineageOS](https://lineageos.org/). (**#RipBozo** 💯🤣🤣 if you choose to run MIUI on your phone anyway)
 
 ### Optional commands
-Send in any telegram chat
+Send in any DM or Group chat
 
 `.about` to view info about the project.
 
