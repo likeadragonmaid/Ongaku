@@ -30,8 +30,8 @@ def neofetch(neo):
         frame = Image.open(pic)
         frames.append(frame)
         count += 1
-    neo_gif = BytesIO()
-    frames[0].save(neo_gif, save_all=True, append_images=frames[1:], format="GIF")
-    neo_gif.name = "neofetch.gif"
-    #frames[0].save("neofetch.gif", save_all=True, append_images=frames[1:], format="GIF")
-    return neo_gif
+    #neo_gif = BytesIO()
+    #frames[0].save(neo_gif, save_all=True, append_images=frames[1:], format="GIF")
+    #neo_gif.name = "neofetch.gif"
+    frames[0].save("neofetch.gif", save_all=True, append_images=frames[1:], format="GIF")
+    return 

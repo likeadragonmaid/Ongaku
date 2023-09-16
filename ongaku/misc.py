@@ -22,7 +22,7 @@
 
 
 class Xtra:
-    BLOAT = [
+    BLOAT = {
         "aac",
         "amr",
         "mp3",
@@ -75,4 +75,4 @@ class Xtra:
         "(remix)",
         "(mashup)",
         "lyrics",
-    ]
+    }

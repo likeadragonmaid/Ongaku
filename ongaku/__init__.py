@@ -7,7 +7,11 @@ log_channel = os.environ.get("LOG_CHANNEL")
 
 bio_ = ""
 
-music_player = os.environ.get("MUSIC_PLAYER")
+music_player = (
+    "com.google.android.as"
+    if int(os.environ.get("NOW_PLAYING_PIXEL_MODE", 0))
+    else os.environ.get("MUSIC_PLAYER")
+)
 
 current_ = ["dummy"]
 

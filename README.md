@@ -87,4 +87,4 @@ Send in any telegram chat
 
 ### Disclaimer
 
-This project is provided as is without any warranty. Telegram may ban your account for no reason but it MAY be recovered as well if you explain your situtaion by writing to them at `recover@telegram.org`. The authors take no responsibilty of your device or your Telegram acount!
+This project is provided as is without any warranty. Telegram may `ban` your account for using Ongaku if your account is only `6 months old` or for any other reason but it MAY be recovered as well if you explain your situtaion by writing to them at `recover@telegram.org`. The authors take no responsibilty of your device or your Telegram acount!

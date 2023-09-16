@@ -13,7 +13,7 @@ from ongaku import trigger, users
 
 from .neofetch import neofetch
 
-Repos = "https://github.com/Ongaku-TG/ongaku"
+Repos = "https://github.com/gibcheesepuffs/Ongaku"
 
 
 @ong.on_message(
@@ -73,9 +73,11 @@ async def neo_alive(ong, message: Message):
     else:
         repo_ = f"[Link]({repo.strip()})"
     caption += f"Repo : {repo_}"
-    await ong.send_animation(
-        chat_id=message.chat.id, animation=neo_gif, caption=caption,unsave=True,
+    await ong.send_document(
+        chat_id=message.chat.id, document="neofetch.gif",caption=caption, force_document=True,
     )
+    if os.path.isfile("neofetch.gif"):
+        os.remove("neofetch.gif")
     await out_msg.delete()
 
 

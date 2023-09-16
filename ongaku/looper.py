@@ -52,7 +52,7 @@ async def loop_():
     )
     me = await ongaku.get_chat("me")
     global bio_
-    bio_ = me.bio if me.bio else ""
+    bio_ = me.bio or ""
     while True:
         song = await get_song(check = False)
         if (
@@ -82,9 +82,15 @@ async def get_song(check : bool=False):
     for data in json.loads(rw_data):
         if data["packageName"] == music_player:
             title, content = data["title"], data["content"]
-            raw_title = f"""{content + " - " if content else ""}{title}""".replace("_", " ")
-            debloated_title = " ".join([word for word in re.split("\W+",raw_title) if word.lower() not in Xtra.BLOAT])
-            full = f"▷Now listening: {debloated_title}"
+            
+            if (content == "Tap to see your song history"): #Google Pixel mode
+                debloated_title = title
+                full = f"▷Now listening: {title}"
+            else :
+                raw_title = f"""{content + " - " if content else ""}{title}""".replace("_", " ")
+                debloated_title = " ".join([word for word in re.split("\W+",raw_title) if word.lower() not in Xtra.BLOAT])
+                full = f"▷Now listening: {debloated_title}"
+            
             val = full
             if debloated_title != current_[-1]:
                 if len(val) > 70:
@@ -95,12 +101,12 @@ async def get_song(check : bool=False):
                             val = val[0:70:]
                 await ongaku.update_profile(bio=val)
                 current_.append(debloated_title)
-                print(f" ▷ {debloated_title}")
+                print(f"▷ {debloated_title}")
             else:
                 val = "Ongaku: Bio update skipped: Notification is stale"
                 # print (val)
             if check:
-               val = f"▷Now  🎧: __{debloated_title}__"
+               val = f"▷Now 🎧: __{debloated_title}__"
     return val 
 
 
