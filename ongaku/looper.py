@@ -46,7 +46,7 @@ else:
 
 async def loop_():
     if log_channel:
-        await ongaku.send_message(chat_id=int(log_channel), text="Ongaku started")
+        await ongaku.send_message(chat_id=int(log_channel), text="Ongaku: Started")
     print(
         "Ongaku: Started\nOngaku: Notifications are checked every 30 seconds\n        to avoid spamming the API(s).\nOngaku: Send .sync in any chat to force notification detection.\n\nNow Playing:"
     )
