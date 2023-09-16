@@ -4,6 +4,7 @@ A **smol and fluffy** bot to update your telegram bio with music playing around 
 ### Requirements
 * An android device capable of running Termux
 * A music player app capable of showing notifications of current music being played
+* Optionally a Google Pixel device if you want to detect Music playing around you.
 ### Getting started
 
 * Install [Termux](https://f-droid.org/en/packages/com.termux/) and [Termux:API](https://f-droid.org/en/packages/com.termux.api/) apps from F-Droid.
@@ -33,7 +34,7 @@ $ `nano config.env`
 
 * You can get `API_ID` and `API_HASH` from [here](https://my.telegram.org/).
 
-* You can use this [app](https://f-droid.org/en/packages/com.oF2pks.applicationsinfo/) to check package name of your music player app and add it to `MUSIC_PLAYER` value.
+* You can use this [app](https://f-droid.org/en/packages/com.oF2pks.applicationsinfo/) to check package name of your music player app and add it to `MUSIC_PLAYER` value. If you want to detect Music playing around you (pixel devices only) uncomment `NOW_PLAYING_PIXEL_MODE` and set it to 1. If enabled it will override your Music Player.
 
 * To optionally get `LOG_CHANNEL` create a private telegram channel and send a random message in it. After that forward that message to [@username_to_id_bot](https://t.me/username_to_id_bot) on telegram or [here](https://t.me/username_to_id_bot).
 
@@ -55,7 +56,7 @@ Use `Ctrl+X` to exit and save your changes.
 
 * If this is your first time launching Ongaku then you will be asked to enter your phone number to login. Next launches will work without having to re-login.
 
-* If everything went well you should be up and running. At this point you can start playing music and you should see current playing song in the Termux app and in the telegram channel you set for logging if any.
+* If everything went well you should be up and running. At this point you can start playing music and you should see current playing song in the Termux app and your telegram bio.
 
 ### Tips
 
