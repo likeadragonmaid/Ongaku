@@ -1,8 +1,8 @@
 """
 
- * file_extensions.py: File to provide known name extensions to Ongaku
+ * misc.py: File to provide known name extensions to Ongaku
 
-  Copyright (C) 2022 Shouko
+  Copyright (C) 2023 likeadragonmaid, Ryuk
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License

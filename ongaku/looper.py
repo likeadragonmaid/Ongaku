@@ -1,8 +1,8 @@
 """
 
- * ongaku.py: Main logic file of Ongaku
+ * looper.py: Main logic file of Ongaku
 
-  Copyright (C) 2022 Shouko
+  Copyright (C) 2023 likeadragonmaid, Ryuk
 
   This program is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public License
