@@ -40,3 +40,6 @@ def generate_session():
         print(
             f"#Session \n\n{session}\n\nexported to your saved messages\nPlease add it to config.env"
         )
+
+if __name__=="__main__":
+    generate_session()
