@@ -25,6 +25,8 @@ class Config:
 
     OPERATING_SYSTEM = get_os()
 
+    OWNER_ID = int(os.environ.get("OWNER_ID",0))
+
     PLAYLIST = []
 
     TRIGGER = os.environ.get("TRIGGER", ".")
