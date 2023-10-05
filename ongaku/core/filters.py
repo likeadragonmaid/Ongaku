@@ -12,9 +12,12 @@ def dynamic_cmd_filter(_, __, message):
             message.from_user.id != Config.OWNER_ID
             and message.from_user.id not in Config.USERS
         )
+        or (
+            message.from_user.id == Config.OWNER_ID
+            and message.chat.id != Config.OWNER_ID
+            and not message.outgoing
+        )
     ):
-        return False
-    if message.from_user.id == Config.OWNER_ID and not message.outgoing:
         return False
     start_str = message.text.split(maxsplit=1)[0]
     cmd = start_str.replace(Config.TRIGGER, "", 1)
