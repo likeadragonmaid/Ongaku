@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/Ongaku-TG/ongaku/main/ongaku/resources/images/logos/ongaku-logo_github.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/likeadragonmaid/Ongaku/main/ongaku/resources/images/logos/ongaku-logo_github.png"></p>
 A **smol and fluffy** bot to update your telegram bio with music playing around you (Pixel) or on your android phone in real time!
 
 ### Requirements
@@ -11,7 +11,7 @@ A **smol and fluffy** bot to update your telegram bio with music playing around 
 * Launch Termux and run the following commands
 
 ```
-apt update && apt dist-upgrade -y && apt update && apt install -y git nano python python-pip termux-api && chmod -w /data/data/com.termux/files/usr/libexec/termux-am/am.apk && git clone https://github.com/Ongaku-TG/ongaku && cd ongaku && pip install virtualenv && virtualenv venv --system-site-packages && source venv/bin/activate && pip install -r requirements.txt && deactivate && cd .. && termux-notification-list
+apt update && apt dist-upgrade -y && apt update && apt install -y git nano python python-pip termux-api && chmod -w /data/data/com.termux/files/usr/libexec/termux-am/am.apk && git clone https://github.com/likeadragonmaid/Ongaku && cd ongaku && pip install virtualenv && virtualenv venv --system-site-packages && source venv/bin/activate && pip install -r requirements.txt && deactivate && cd .. && termux-notification-list
 ```
 
 Optionally you can also add neofetch support by running
@@ -83,7 +83,7 @@ Send in any DM or Group chat
 `.alive -t` to get environment information in text format.
 
 ### Authors
-* [Shoko](https://github.com/gibcheesepuffs)
+* [Shoko](https://github.com/likeadragonmaid)
 * [Ryuk](https://github.com/anonymousx97)
 
 ### Disclaimer

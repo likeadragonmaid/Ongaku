@@ -45,8 +45,8 @@ fi
 }
 
 #updateRemote() {
-#if [ $(git config --get remote.origin.url) == "https://github.com/gibcheesepuffs/ongaku" ]; then
-#	git remote set-url origin https://github.com/Ongaku-TG/ongaku.git
+#if [ $(git config --get remote.origin.url) == "https://github.com/Ongaku-TG/ongaku" ]; then
+#	git remote set-url origin https://github.com/likeadragonmaid/Ongaku.git
 #fi
 #}
 
